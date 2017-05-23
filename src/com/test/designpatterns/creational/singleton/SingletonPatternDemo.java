@@ -49,19 +49,20 @@ class StaticBlockSingleton {
 	}
 }
 
-class LazySingleton {
-	private static volatile LazySingleton instance = null;
+// Lazy Singleton with double check locking
+class LazyDoubleCheckSingleton {
+	private static volatile LazyDoubleCheckSingleton instance = null;
 
 	// private constructor
-	private LazySingleton() {
+	private LazyDoubleCheckSingleton() {
 	}
 
-	public static LazySingleton getInstance() {
+	public static LazyDoubleCheckSingleton getInstance() {
 		if (instance == null) {
-			synchronized (LazySingleton.class) {
+			synchronized (LazyDoubleCheckSingleton.class) {
 				// Double check
 				if (instance == null) {
-					instance = new LazySingleton();
+					instance = new LazyDoubleCheckSingleton();
 				}
 			}
 		}
@@ -74,7 +75,7 @@ class PerfectSingleton implements Serializable, Cloneable {
 
 	public static PerfectSingleton getInstance() {
 		if (instance == null) {
-			synchronized (LazySingleton.class) {
+			synchronized (PerfectSingleton.class) {
 				// Double check
 				if (instance == null) {
 					instance = new PerfectSingleton();
@@ -100,12 +101,12 @@ class PerfectSingletonWithInnerClass implements Serializable {
 		// private constructor
 	}
 
-	private static class DemoSingletonHolder {
+	private static class InnerSingletonHolder {
 		public static final PerfectSingletonWithInnerClass INSTANCE = new PerfectSingletonWithInnerClass();
 	}
 
 	public static PerfectSingletonWithInnerClass getInstance() {
-		return DemoSingletonHolder.INSTANCE;
+		return InnerSingletonHolder.INSTANCE;
 	}
 
 	protected Object readResolve() {

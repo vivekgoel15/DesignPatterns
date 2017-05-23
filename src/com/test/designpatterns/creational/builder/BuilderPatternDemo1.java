@@ -11,7 +11,6 @@ import com.test.designpatterns.creational.builder.User.UserBuilder;
  *
  */
 public class BuilderPatternDemo1 {
-
 	public static void main(String[] args) {
 		UserBuilder userBuilder = new UserBuilder("first", "last");
 		User user = userBuilder.salutation("Mr.").streetAddress("IT Park").city("Chandigarh").country("India")
@@ -20,7 +19,6 @@ public class BuilderPatternDemo1 {
 }
 
 class User {
-
 	private final String lastName;
 	private final String firstName;
 	private final String salutation;

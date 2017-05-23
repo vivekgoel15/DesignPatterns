@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * strategy pattern (also known as the policy pattern) is a behavioural software
- * design pattern that enables an algorithm's behavior to be selected at
- * runtime.
+ * Strategy pattern (also known as the policy pattern) is a behavioral design
+ * pattern that enables an algorithm's behavior to be selected at runtime.
  * 
  * e.g. java.util.Comparator#compare(), Collections#sort()
  * 
@@ -36,7 +35,6 @@ interface PaymentStrategy {
 }
 
 class CreditCardStrategy implements PaymentStrategy {
-
 	private String name;
 	private String cardNumber;
 	private String cvv;
@@ -53,11 +51,9 @@ class CreditCardStrategy implements PaymentStrategy {
 	public void pay(int amount) {
 		System.out.println(amount + " paid with credit/debit card");
 	}
-
 }
 
 class PaypalStrategy implements PaymentStrategy {
-
 	private String emailId;
 	private String password;
 
@@ -70,11 +66,9 @@ class PaypalStrategy implements PaymentStrategy {
 	public void pay(int amount) {
 		System.out.println(amount + " paid using Paypal.");
 	}
-
 }
 
 class Item {
-
 	private String upcCode;
 	private int price;
 
@@ -90,11 +84,9 @@ class Item {
 	public int getPrice() {
 		return price;
 	}
-
 }
 
 class ShoppingCart {
-
 	// List of items
 	List<Item> items;
 

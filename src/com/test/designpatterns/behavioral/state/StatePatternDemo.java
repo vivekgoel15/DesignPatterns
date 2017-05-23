@@ -19,7 +19,7 @@ public class StatePatternDemo {
 		ITrafficLight initialState = new GreenLight();
 		context.setState(initialState);
 		context.getState().reportState();
-		while (true) {
+		for (int i = 0; i < 5; i++) {
 			try {
 				context.next();
 			} catch (InterruptedException e) {
@@ -68,6 +68,7 @@ class RedLight implements ITrafficLight {
 	}
 }
 
+// Context class to hold the state
 class TrafficLightContext {
 
 	private ITrafficLight trafficState;
