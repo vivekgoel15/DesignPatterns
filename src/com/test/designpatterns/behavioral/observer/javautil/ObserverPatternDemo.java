@@ -1,7 +1,5 @@
 package com.test.designpatterns.behavioral.observer.javautil;
 
-import java.util.Observable;
-
 /**
  * The observer pattern is a software design pattern in which an object, called
  * the subject, maintains a list of its dependents, called observers, and
@@ -13,7 +11,7 @@ import java.util.Observable;
  * @author vigoel
  *
  */
-public class ObserverPatternDemo extends Observable {
+public class ObserverPatternDemo {
 	public static void main(String[] args) {
 		MessageBoard board = new MessageBoard();
 		Student bob = new Student("Bob");
